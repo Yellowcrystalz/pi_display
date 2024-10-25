@@ -18,7 +18,6 @@ pins = {
 def main():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup()
 
     setup_display(pins)
     turn_on_display(pins)
