@@ -34,8 +34,10 @@ def turn_on_display(pins: list) -> None:
     for i in range(len(pins)):
         if i > 3:
             GPIO.output(pins[i], False) 
+            print(f"pin {pins[i]} is low")
         else:
             GPIO.output(pins[i], True)
+            print(f"pin {pins[i]} is high")
 
 def clear_display(pins):
     for pin in pins:
