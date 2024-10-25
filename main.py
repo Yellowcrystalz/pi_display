@@ -9,5 +9,8 @@ def main():
     # binary_list = lcd.string_to_binary(message)
     # lcd.write_message(binary_list)
 
+    while(True):
+        pass
+
 if __name__ == "__main__":
     main()
