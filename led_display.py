@@ -28,6 +28,7 @@ def main():
 def setup_display(pins: list) -> None:
     for pin in pins:
         GPIO.setup(pin, GPIO.OUT)
+        GPIO.output(pin, False)
 
 def turn_on_display(pins: list) -> None:
     for i in range(len(pins)):
