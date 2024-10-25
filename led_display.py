@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-pins = {
+pins = [
     22, # db0
     23, # db1
     24, # db2
@@ -13,7 +13,7 @@ pins = {
 
     17, # RS
     27 # RW
-}
+]
 
 def main():
     GPIO.setwarnings(False)
