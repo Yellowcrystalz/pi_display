@@ -1,37 +1,49 @@
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 
-# GPIO.setwarnings(False)
-# GPIO.setmod(GPIO.BCM)
-# GPIO.setup()
+pins = {
+    22, # db0
+    23, # db1
+    24, # db2
+    25, # db3
+    5,  # db4
+    6,  # db5
+    12, # db6
+    13,  # db7
+
+    17, # RS
+    27 # RW
+}
 
 def main():
-    pins = {
-        22, # db0
-        23, # db1
-        24, # db2
-        25, # db3
-        5,  # db4
-        6,  # db5
-        12, # db6
-        13,  # db7
+    GPIO.setwarnings(False)
+    GPIO.setmod(GPIO.BCM)
+    GPIO.setup()
 
-        17, # RS
-        27 # RW
-    }
+    setup_display(pins)
+    turn_on_display(pins)
 
-    # setup_display(pins)
+    while(True):
+        pass
 
-# def setup_display(pins):
-#     for pin in pins:
-#         GPIO.setup(pin, GPIO.OUT)
 
-# def clear_display(pins):
-#     for pin in pins:
-#         if pin != 22:
-#             GPIO.output(pin, False)
-#         else:
-#             GPIO.output(pin, True)
+def setup_display(pins: list) -> None:
+    for pin in pins:
+        GPIO.setup(pin, GPIO.OUT)
+
+def turn_on_display(pins: list) -> None:
+    for i in range(len(pins)):
+        if i > 3:
+            GPIO.setup(pins[i], False) 
+        else:
+            GPIO.setup(pins[i], True)
+
+def clear_display(pins):
+    for pin in pins:
+        if pin != 22:
+            GPIO.output(pin, False)
+        else:
+            GPIO.output(pin, True)
 
 def string_to_char_list(string):
     string_list = string.split()
