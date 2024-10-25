@@ -19,6 +19,7 @@ def main():
     GPIO.setmode(GPIO.BCM)
 
     setup_display(pins)
+    time.sleep(1)
     turn_on_display(pins)
 
     while(True):
