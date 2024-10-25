@@ -33,9 +33,9 @@ def setup_display(pins: list) -> None:
 def turn_on_display(pins: list) -> None:
     for i in range(len(pins)):
         if i > 3:
-            GPIO.setup(pins[i], False) 
+            GPIO.output(pins[i], False) 
         else:
-            GPIO.setup(pins[i], True)
+            GPIO.output(pins[i], True)
 
 def clear_display(pins):
     for pin in pins:
