@@ -2,17 +2,16 @@ import RPi.GPIO as GPIO
 import time
 
 pins = [
-    22, # db0
-    23, # db1
-    24, # db2
-    25, # db3
-    5,  # db4
-    6,  # db5
-    12, # db6
-    13,  # db7
+    17, # db0
+    27, # db1
+    22, # db2
+    23, # db3
+    24, # db4
+    25, # db5
+    5,  # db6
+    6,  # db7
 
-    17, # RS
-    27 # RW
+    13, # RS
 ]
 
 def main():
