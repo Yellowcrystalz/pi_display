@@ -7,14 +7,8 @@ class LCDDisplay():
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
 
-        self.pins: list = [
-	    25, #RS
-	    26, #E
-     	    17, #db0
- 	    27, #db1
-	    22, #db2
-	    24 	#db3
-	]
+        self.pins: list = [25,26,17,27,22,24]
+	#RS, E, db0, db1, db2, db3
 
         [GPIO.setup(pin, GPIO.OUT) for pin in self.pins]
         self.clear_display()
@@ -41,7 +35,9 @@ class LCDDisplay():
     
     @set_write
     def write(self, binary: str) -> None:
-        for i in range(len(self.pins)):
+        for i in self.pins:
+                if i < 6: #
+                        GPIO.output(self.pins[i], binary[i] == "1")
     
     def string_to_binary(self, string):
         binary_list = list()
